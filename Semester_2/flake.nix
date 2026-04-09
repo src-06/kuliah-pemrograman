@@ -27,7 +27,7 @@
         {
           default = pkgs.mkShellNoCC {
             packages = with pkgs; [ php ];
-            shellHook = "";
+            shellHook = "echo fish";
           };
         }
       );
