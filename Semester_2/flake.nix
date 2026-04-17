@@ -1,5 +1,5 @@
 {
-  description = "Empty Development Environment";
+  description = "Development Environment";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
