@@ -1,0 +1,5 @@
+* text=auto eol=lf
+
+*.cpp diff=cpp
+*.html diff=html
+*.php diff=php
