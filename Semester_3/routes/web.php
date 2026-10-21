@@ -7,7 +7,11 @@ Route::get('/', function () {
 });
 
 Route::get('/mahasiswa', function () {
-    return view('mahasiswa');
+    $nama = 'Farell Reyhan Pradana';
+    $nim = '312500013';
+    $prodi = 'Teknologi Rekayasa Perangkat Lunak';
+
+    return view('mahasiswa', compact('nama', 'nim', 'prodi'));
 });
 
 Route::get('/dosen', function () {
