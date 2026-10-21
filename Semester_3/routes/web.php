@@ -7,7 +7,7 @@ Route::get('/', function () {
 });
 
 Route::get('/mahasiswa', function () {
-    return 'Halaman Data Mahasiswa';
+    return view('mahasiswa');
 });
 
 Route::get('/dosen', function () {
