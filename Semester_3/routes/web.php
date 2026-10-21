@@ -12,3 +12,7 @@ Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 Route::get('/dosen', function () {
     return 'Halaman Data Dosen';
 });
+
+Route::get('/salam/{nama}', function ($nama) {
+    return 'Halo, ' . $nama;
+});
