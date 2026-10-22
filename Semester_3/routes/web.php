@@ -23,9 +23,18 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 Route::get('/login', function () {
-    return view('auth/login');
+    return view('login');
 })->name('login');
 
 Route::post('/simpan', function (Request $request) {
     return 'Data berhasil dikirim dengan nama: ' . $request->nama;
+});
+
+Route::get('/form-mahasiswa', fn() => view('form-mahasiswa'));
+Route::post('/simpan-mahasiswa', function (Request $request) {
+    $request->validate([
+        'nama' => 'required|min:3',
+    ]);
+
+    return 'Nama berhasil diperiksa: ' . $request->nama;
 });
