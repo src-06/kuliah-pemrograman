@@ -38,3 +38,10 @@ Route::post('/simpan-mahasiswa', function (Request $request) {
 
     return 'Nama berhasil diperiksa: ' . $request->nama;
 });
+
+
+Route::get('/session', function () {
+    session(['nama' => 'Farell Reyhan Pradana']);
+
+    return 'Nama dalam session: ' . session('nama');
+});
