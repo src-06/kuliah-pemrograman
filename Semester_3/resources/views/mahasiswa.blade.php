@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <x-header />
+
     <h1 class="text-2xl font-bold">Profil Mahasiswa</h1>
 
     <p>Nama: {{ $nama }}</p>

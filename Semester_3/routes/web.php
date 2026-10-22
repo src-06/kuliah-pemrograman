@@ -4,9 +4,9 @@ use App\Http\Controllers\MahasiswaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return 'Selamat Datang di Pemrograman Web 3';
-});
+Route::get('/', fn() => view('home'));
+
+Route::post('/profil', [MahasiswaController::class, 'profil']);
 
 Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 
@@ -38,7 +38,6 @@ Route::post('/simpan-mahasiswa', function (Request $request) {
 
     return 'Nama berhasil diperiksa: ' . $request->nama;
 });
-
 
 Route::get('/session', function () {
     session(['nama' => 'Farell Reyhan Pradana']);

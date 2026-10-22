@@ -14,4 +14,17 @@ class MahasiswaController extends Controller
             'prodi' => 'Teknologi Rekayasa Perangkat Lunak',
         ]);
     }
+
+    public function profil(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required|min:3',
+            'pass' => 'required|min:8',
+        ]);
+
+        return view('profil', [
+            'nama' => $request->nama,
+            'pass' => $request->pass,
+        ]);
+    }
 }
