@@ -1,5 +1,6 @@
 *.log
 .DS_Store
+.direnv
 .env
 .env.backup
 .env.production
@@ -19,6 +20,9 @@
 /public/fonts-manifest.dev.json
 /public/hot
 /public/storage
+/services/cache
+/services/config/nginx/ssl
+/services/phpMyAdmin
 /storage/*.key
 /storage/pail
 /vendor

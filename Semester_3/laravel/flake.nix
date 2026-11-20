@@ -1,0 +1,43 @@
+{
+  description = "LEMP Stack Development Environment";
+
+  inputs.nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
+
+  outputs =
+    { nixpkgs, ... }:
+    let
+      supportedSystems = [
+        "x86_64-linux"
+        "x86_64-darwin"
+      ];
+      forEachSupportedSystem =
+        f:
+        nixpkgs.lib.genAttrs supportedSystems (
+          system:
+          f {
+            pkgs = import nixpkgs { inherit system; };
+          }
+        );
+    in
+    {
+      devShells = forEachSupportedSystem (
+        { pkgs }:
+        {
+          default = pkgs.mkShellNoCC {
+            packages = with pkgs; [
+              bun
+              php
+              phpPackages.composer
+              mariadb
+              nginx
+              process-compose
+            ];
+            shellHook = ''
+              bash services/scripts/setup.sh
+              echo "To start LEMP Stack run command \`process-compose up\`!!!"
+            '';
+          };
+        }
+      );
+    };
+}
