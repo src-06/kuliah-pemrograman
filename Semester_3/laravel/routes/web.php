@@ -3,6 +3,7 @@
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\ProdukController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -108,4 +109,9 @@ Route::get('/session', function () {
     session(['nama' => 'Farell Reyhan Pradana']);
 
     return 'Nama dalam session: ' . session('nama');
+});
+
+Route::get('/get_mahasiswa', function () {
+    $mahasiswa = DB::table('mahasiswa')->get();
+    return view('mahasiswa.index', compact('mahasiswa'));
 });
