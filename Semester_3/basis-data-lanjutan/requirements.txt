@@ -1,0 +1,2 @@
+sqlit-tui
+mssql-python

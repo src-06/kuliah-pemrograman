@@ -1,0 +1,40 @@
+version: 0.5
+
+processes:
+  info:
+    command: >
+      cat << "EOF"
+
+      <==========[ MSSQL Server ]==========>
+
+        MSSQL Server:
+          - Host: localhost
+          - Port: 1433
+          - User: sa
+          - Pswd: P@ssw0r6
+
+        Stop Server: Press [ F10 ]
+
+      <==========[ MSSQL Server ]==========>
+
+      EOF
+    depends_on:
+      mssql-server:
+        condition: process_started
+
+  init-setup:
+    command: >
+      if [ ! -d ".mssql" ]; then
+        mkdir .mssql
+        chmod 777 .mssql
+      fi
+
+  mssql-server:
+    command: podman-compose up
+    shutdown:
+      command: podman-compose down
+    availibility:
+      restart: on-failure
+    depends_on:
+      init-setup:
+        condition: process_completed
