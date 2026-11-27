@@ -120,9 +120,9 @@ Route::get('/getmahasiswa', function () {
     $mahasiswa = DB::table('mahasiswa')
         // ->select('nim', 'nama', 'prodi')
         // ->where('nim', '26010001')
-        // ->orderBy('nama', 'asc')
-        ->orderBy('nama', 'desc')
-        ->paginate(5)
+        ->orderBy('nama', 'asc')
+        // ->orderBy('nama', 'desc')
+        ->paginate(3)
         // ->get()
     ;
     return view('mahasiswa.index', compact('mahasiswa'));

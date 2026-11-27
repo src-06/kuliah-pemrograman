@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nim', 20)->unique();
             $table->string('nama', 100);
             $table->string('prodi', 100);
+            $table->string('email', 100);
             $table->timestamps();
         });
     }

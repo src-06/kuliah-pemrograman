@@ -14,6 +14,7 @@
             <th>NIM</th>
             <th>Nama</th>
             <th>Program Studi</th>
+            <th>Email</th>
         </tr>
 
         @foreach ($mahasiswa as $mhs)
@@ -22,6 +23,7 @@
                 <td>{{ $mhs->nim }}</td>
                 <td>{{ $mhs->nama }}</td>
                 <td>{{ $mhs->prodi }}</td>
+                <td>{{ $mhs->email }}</td>
             </tr>
         @endforeach
     </table>
