@@ -115,3 +115,15 @@ Route::get('/get_mahasiswa', function () {
     $mahasiswa = DB::table('mahasiswa')->get();
     return view('mahasiswa.index', compact('mahasiswa'));
 });
+
+Route::get('/getmahasiswa', function () {
+    $mahasiswa = DB::table('mahasiswa')
+        // ->select('nim', 'nama', 'prodi')
+        // ->where('nim', '26010001')
+        // ->orderBy('nama', 'asc')
+        ->orderBy('nama', 'desc')
+        ->paginate(5)
+        // ->get()
+    ;
+    return view('mahasiswa.index', compact('mahasiswa'));
+});

@@ -43,10 +43,10 @@ processes:
       init:
         condition: process_completed
 
-  laravel-dev:
-    command: composer dev
-    availability:
-      restart: on_failure
-    depends_on:
-      mariadb:
-        condition: process_started
+# laravel-dev:
+#   command: composer dev
+#   availability:
+#     restart: on_failure
+#   depends_on:
+#     mariadb:
+#       condition: process_started

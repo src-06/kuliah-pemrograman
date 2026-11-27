@@ -25,5 +25,7 @@
             </tr>
         @endforeach
     </table>
+
+    {{ $mahasiswa->links() }}
 </body>
 </html>
